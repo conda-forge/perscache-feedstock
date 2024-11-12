@@ -1,5 +1,5 @@
 {% set name = "perscache" %}
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/perscache-{{ version }}.tar.gz
-  sha256: 1bb2f5f67b8cc137b2c5a2ccbe7c7a3e6dc5e9a72bcf355689a2a9f2a4513047
+  sha256: 9eaec00bff71d2d9b00f5f9acbd3313ef0ec88d05045cbf2dc373602ed5bf44c
 
 build:
   noarch: python
