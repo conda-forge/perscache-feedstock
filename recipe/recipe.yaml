@@ -1,0 +1,52 @@
+schema_version: 1
+
+context:
+  name: perscache
+  version: 0.7.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/perscache-${{ version }}.tar.gz
+  sha256: e56b7611b26d41c3dc457ccd00bf65f0a429c892e62d7dd74f1bddb67e419aca
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pbr
+    - setuptools
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - beartype
+    - cloudpickle
+    - icontract
+
+tests:
+  - python:
+      imports:
+        - perscache
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: "An easy to use decorator for persistent memoization: like `functools.lrucache`, but results can be saved in any format to any storage."
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/leshchenko1979/perscache
+
+extra:
+  recipe-maintainers:
+    - pavelzw
