@@ -8,7 +8,7 @@ package:
   version: ${{ version }}
 
 source:
-- url: https://files.pythonhosted.org/packages/source/p/perscache/perscache-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/perscache/perscache-${{ version }}.tar.gz
   sha256: 76ddbb2d25ec475a98cc2a789b3b94006998330f2e4b7cad9281fb2e939868c0
 
 build:
