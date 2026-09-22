@@ -1,19 +1,18 @@
 schema_version: 1
 
 context:
-  name: perscache
-  version: 0.7.0
+  version: 0.7.1
 
 package:
-  name: ${{ name|lower }}
+  name: perscache
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/perscache-${{ version }}.tar.gz
-  sha256: e56b7611b26d41c3dc457ccd00bf65f0a429c892e62d7dd74f1bddb67e419aca
+  url: https://pypi.org/packages/source/p/perscache/perscache-${{ version }}.tar.gz
+  sha256: 76ddbb2d25ec475a98cc2a789b3b94006998330f2e4b7cad9281fb2e939868c0
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -33,7 +32,9 @@ tests:
   - python:
       imports:
         - perscache
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - '*'
   - requirements:
       run:
         - pip
